@@ -1,0 +1,149 @@
+/* General Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #17a2b8;
+}
+
+/* Section Styling */
+section {
+    padding: 50px 0;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #17a2b8;
+    font-size: 2em;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background-color: #17a2b8;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Stats Styling */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.stat-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.stat-box h3 {
+    color: #343a40;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.stat-number {
+    font-size: 2.5em;
+    color: #17a2b8;
+}
+
+.chart-box {
+    width: 40%;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .stat-box,
+    .chart-box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup - Co-Working Space Management Portal</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Co-Working Space Portal</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mainpage.html">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-form">
+                <h2>Login</h2>
+                <form action="login.php" method="post">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required>
+                    
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="password" required>
+                    
+                    <a href="dashboard.html" class="login-button">Login</a>
+                </form>
+            </div>
+
+            <div class="auth-form">
+                <h2>Signup</h2>
+                <form action="signup-process.php" method="post">
+                    <label for="signup-name">Name:</label>
+                    <input type="text" id="signup-name" name="name" required>
+                    
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="email" required>
+                    
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" name="password" required>
+                    
+                    <button type="submit">Signup</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Co-Working Space Management Portal. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

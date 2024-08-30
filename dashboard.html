@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to Your Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="#usage-stats">Usage Stats</a></li>
+                    <li><a href="#current-reservations">Current Reservations</a></li>
+                    <li><a href="#past-reservations">Past Reservations</a></li>
+                    <li><a href="#pending-bills">Pending Bills</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="usage-stats">
+        <div class="container">
+            <h2>Your Usage Stats</h2>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h3>Total Hours Used</h3>
+                    <p><span class="stat-number">160</span> hrs</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Average Daily Usage</h3>
+                    <p><span class="stat-number">4</span> hrs/day</p>
+                </div>
+                <div class="chart-box">
+                    <canvas id="usageChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="current-reservations">
+        <div class="container">
+            <h2>Current Reservations</h2>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h3>Active Reservations</h3>
+                    <p><span class="stat-number">3</span></p>
+                </div>
+                <div class="stat-box">
+                    <h3>Reserved Hours</h3>
+                    <p><span class="stat-number">15</span> hrs</p>
+                </div>
+                <div class="chart-box">
+                    <canvas id="reservationsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="past-reservations">
+        <div class="container">
+            <h2>Past Reservations</h2>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h3>Total Reservations</h3>
+                    <p><span class="stat-number">45</span></p>
+                </div>
+                <div class="stat-box">
+                    <h3>Total Hours Reserved</h3>
+                    <p><span class="stat-number">180</span> hrs</p>
+                </div>
+                <div class="chart-box">
+                    <canvas id="pastReservationsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pending-bills">
+        <div class="container">
+            <h2>Pending Bills</h2>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h3>Unpaid Bills</h3>
+                    <p><span class="stat-number">₹8,000</span></p>
+                </div>
+                <div class="stat-box">
+                    <h3>Upcoming Bills</h3>
+                    <p><span class="stat-number">₹5,000</span></p>
+                </div>
+                <div class="chart-box">
+                    <canvas id="billsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profile">
+        <div class="container">
+            <h2>Your Profile</h2>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h3>Membership Type</h3>
+                    <p><span class="stat-number">Annual</span></p>
+                </div>
+                <div class="stat-box">
+                    <h3>Member Since</h3>
+                    <p><span class="stat-number">Jan 2023</span></p>
+                </div>
+                <div class="chart-box">
+                    <canvas id="profileChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Co-Working Space Management Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const usageCtx = document.getElementById('usageChart').getContext('2d');
+        const usageChart = new Chart(usageCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Hours Used',
+                    data: [3, 4, 2, 5, 6, 3, 4],
+                    backgroundColor: 'rgba(23, 162, 184, 0.5)',
+                    borderColor: '#17a2b8',
+                    borderWidth: 2,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10
+                    }
+                }
+            }
+        });
+
+        const reservationsCtx = document.getElementById('reservationsChart').getContext('2d');
+        const reservationsChart = new Chart(reservationsCtx, {
+            type: 'line',
+            data: {
+                labels: ['Reservation 1', 'Reservation 2', 'Reservation 3'],
+                datasets: [{
+                    label: 'Reserved Hours',
+                    data: [5, 7, 3],
+                    backgroundColor: 'rgba(23, 162, 184, 0.5)',
+                    borderColor: '#17a2b8',
+                    borderWidth: 2,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const pastReservationsCtx = document.getElementById('pastReservationsChart').getContext('2d');
+        const pastReservationsChart = new Chart(pastReservationsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Total Hours Reserved',
+                    data: [45, 50, 40, 45],
+                    backgroundColor: 'rgba(40, 167, 69, 0.5)',
+                    borderColor: '#28a745',
+                    borderWidth: 2,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 60
+                    }
+                }
+            }
+        });
+
+        const billsCtx = document.getElementById('billsChart').getContext('2d');
+        const billsChart = new Chart(billsCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Unpaid', 'Paid'],
+                datasets: [{
+                    data: [8000, 12000],
+                    backgroundColor: ['#dc3545', '#17a2b8'],
+                    borderColor: '#fff',
+                    borderWidth: 2,
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        const profileCtx = document.getElementById('profileChart').getContext('2d');
+        const profileChart = new Chart(profileCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Membership Duration', 'Remaining Duration'],
+                datasets: [{
+                    data: [8, 4],
+                    backgroundColor: ['#ffc107', '#17a2b8'],
+                    borderColor: '#fff',
+                    borderWidth: 2,
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
